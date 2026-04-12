@@ -1,3 +1,4 @@
+import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, IBM_Plex_Serif, Mona_Sans } from "next/font/google";
 
@@ -32,8 +33,10 @@ export default function RootLayout({
       <body
         className={`${ibmPlexSerif.variable} ${monaSans.variable} relative font-sans antialiased`}
       >
-        <Navbar />
-        {children}
+        <ClerkProvider>
+          <Navbar />
+          {children}
+        </ClerkProvider>
       </body>
     </html>
   );
