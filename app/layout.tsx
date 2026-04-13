@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   description: "Transform your books into interactive AI conversations with BookiFY. Upload your pdf, books and chat with them using voice, to explore their content in a whole new way.",
 };
 
+import { Toaster } from 'sonner';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,6 +38,7 @@ export default function RootLayout({
         <ClerkProvider>
           <Navbar />
           {children}
+          <Toaster richColors position="top-right" />
         </ClerkProvider>
       </body>
     </html>
