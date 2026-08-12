@@ -124,7 +124,8 @@ export async function parsePDFFile(file: File) {
     await firstPage.render({
       canvasContext: context,
       viewport: viewport,
-    }).promise;
+      canvas: canvas,
+    } as any).promise;
 
     // Convert canvas to data URL
     const coverDataURL = canvas.toDataURL("image/png");
@@ -146,7 +147,7 @@ export async function parsePDFFile(file: File) {
     const segments = splitIntoSegments(fullText);
 
     // Clean up PDF document resources
-    await pdfDocument.destroy();
+    await loadingTask.destroy();
 
     return {
       content: segments,

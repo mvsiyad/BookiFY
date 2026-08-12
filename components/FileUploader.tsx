@@ -5,7 +5,7 @@ import { LucideIcon, FileText, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface FileUploaderProps {
-    control: Control<any>;
+    control: any;
     name: string;
     label: string;
     acceptTypes: string[];
